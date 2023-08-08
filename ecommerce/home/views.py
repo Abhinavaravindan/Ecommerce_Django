@@ -3,8 +3,8 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from.models import Category,Products
-
+from.models import Category,Products,Cart,Contacts
+from django.http import JsonResponse
 
 
 def index(request):
@@ -77,6 +77,23 @@ def collectionview(request,category__slug,prod_slug):
     return render(request,'productview.html',{'abhi':abhi})
 
 
+
+
+
+
+def contactview(request):
+    if request.method =="POST":
+        form = Contacts(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'confirmetion.html')
+    form = Contacts()
+    dic_form={
+        'form':form
+    }
+    return render(request, 'index.html',dic_form)
+
+
 def contact(request):
     return render(request,'contact.html')
 
@@ -84,6 +101,12 @@ def contact(request):
 
 def blog_list(request):
     return render(request,'blog_list.html')
+
+def about(request):
+    return render(request,'about.html')
+
+
+
 
 
 

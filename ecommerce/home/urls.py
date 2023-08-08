@@ -13,7 +13,7 @@ urlpatterns = [
     path('products/<str:category__slug>/<str:prod_slug>',views.collectionview,name='collectionview'),
     path('contact',views.contact,name='contact'),
     path('blog_list',views.blog_list,name='blog_list'),
-    
-  
+    path('contactview',views.contactview,name="contactview"),
+    path('about',views.about,name='about'),
 
 ]

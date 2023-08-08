@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import  User
 
 class Category(models.Model):
     slug=models.CharField(max_length=200,null=False,blank=False)
@@ -32,7 +33,13 @@ class Contacts(models.Model):
     email=models.EmailField(max_length=254,unique=True,blank=False,null=False,verbose_name='Email Address')
     subject=models.CharField(max_length=40,null=False,blank=False)
     messege= models.TextField( blank=True,null=True,)      
-        
+
+
+class Cart(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE) 
+    product =models.ForeignKey(Products,on_delete=models.CASCADE)
+    product_qty=models.IntegerField(null=False,blank=False)
+    created_at = models.DateField(auto_now_add=True)
         
         
     
