@@ -11,8 +11,8 @@
       <meta name="keywords" content="" />
       <meta name="description" content="" />
       <meta name="author" content="" />
-      <link rel="shortcut icon" href="images/favicon.png" type="">
-      <title>STORE</title>
+      <link rel="shortcut icon" href="{%static '/images/favicon.png'%}" type="">
+      <title>FammsGadgets Store</title>
       <!-- bootstrap core css -->
       <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.css' %}" />
       <!-- font awesome style --> 
@@ -21,6 +21,44 @@
       <link href="{% static '/css/style.css'%}" rel="stylesheet" />
       <!-- responsive style -->
       <link href="{% static '/css/responsive.css' %}" rel="stylesheet" />
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+      <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+      <script>
+         var availableTags = [];
+         
+         $.ajax({
+            type: "GET",
+            url: "/product-list",
+            success: function (response) {
+          
+              startAutocomplete(response);
+            }
+         });
+         function startAutocomplete(availableTags)
+         {
+            $( "#searchproduct" ).autocomplete({
+               source: availableTags
+            });
+         }
+        
+   </script>
+
+      
+
+      <!--Start of Tawk.to Script-->
+   <script type="text/javascript">
+      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/64f806c6b2d3e13950ee311d/1h9kdkuta';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+      })();
+   </script>
+   <!--End of Tawk.to Script-->
    </head>
 
    {%block css%}
@@ -29,26 +67,17 @@
    
    <body>
       <div class="hero_area">
-         <!-- header section strats -->
+      
         {% include 'navbar.html'%}
-         <!-- end header section -->
-         <!-- slider section -->
+        
          {% include 'slider.html'%}
-         <!-- end slider section -->
       </div>
 
 {% block body%}
 
 
 
- 
-
-
 {% endblock body %}
-
-
-
-
 
       <section class="subscribe_section">
         <div class="container-fuild">
@@ -138,7 +167,7 @@
                        </div>
                        <div class="detail-box">
                           <h5>
-                             Anna Trevor
+                             Anna joseph
                           </h5>
                           <h6>
                              Customer
@@ -174,9 +203,9 @@
                        <a href="#"><img width="210" src="{% static '/images/logo.png'%}" alt="#" /></a>
                      </div>
                      <div class="information_f">
-                       <p><strong>ADDRESS:</strong> 28 White tower, Street Name New York City, USA</p>
-                       <p><strong>TELEPHONE:</strong> +91 987 654 3210</p>
-                       <p><strong>EMAIL:</strong> yourmain@gmail.com</p>
+                       <p><strong>Address:</strong>Kerala,Kochi</p>
+                       <p><strong>Telephone:</strong> +91 987 654 3210</p>
+                       <p><strong>Email:</strong> gadgets@gmail.com <p>
                      </div>
                   </div>
               </div>
@@ -237,9 +266,9 @@
      </footer>
      <!-- footer end -->
      <div class="cpy_">
-        <p class="mx-auto">© 2023 All Rights Reserved By <a href="https://html.design/"></a><br>
+        <p class="mx-auto">© 2023 All Rights Reserved By Famms Gadgets<a href="https://html.design/"></a><br>
         
-           Distributed By <a href="" target="_blank">Abhinav</a>
+           Distributed By <a href="" target="_blank">Famms</a>
         
         </p>
      </div>
@@ -251,6 +280,7 @@
      <script src="{% static '/js/bootstrap.js'%}"></script>
      <!-- custom js -->
      <script src="{% static '/js/custom.js'%}"></script>
+     
 
      {%block js%}
 

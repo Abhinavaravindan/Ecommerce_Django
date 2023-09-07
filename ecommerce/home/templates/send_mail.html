@@ -1,0 +1,18 @@
+<!-- send_email.html -->
+
+{% extends 'index.html' %}
+
+{% block content %}
+  <h2>Send Email</h2>
+  <form method="post">
+    {% csrf_token %}
+    <label for="recipient">Recipient:</label>
+    <input type="email" name="recipient"><br>
+    <label for="subject">Subject:</label>
+    <input type="text" name="subject"><br>
+    <label for="message">Message:</label>
+    <textarea name="message"></textarea><br>
+    <button type="submit">Send Email</button>
+  </form>
+{% endblock %}
+              

@@ -1,0 +1,97 @@
+{% extends 'main2.html'%}
+{%load static%}
+{%block body%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <div class="container">
+        <br />
+        <nav aria-label="breadcrumb ">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'index'%}">Home</a></li>
+            <li class="breadcrumb-item">
+            <a href="{% url 'myorders'%}">Orders</a>
+            </li>
+        </ol>
+        </nav>
+        <div>
+            
+</div>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow">
+                <div class="card-header">
+                    <h2 class="mb-0">
+                        <a href="{%url 'myorders'%}" class="btn btn-warning float-end text-white"><i class="fa fa-reply"></i> Back</a>
+                        Order View
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Shipping Details</h4>
+                            <hr>
+                            <label class="mt-2">First Name</label>
+                            <div class="border p-1">{{order.fname}}</div>
+                            <label class="mt-2">Last Name</label>
+                            <div class="border p-1">{{order.lname}}</div>
+                            <label class="mt-2">Email</label>
+                            <div class="border p-1">{{order.email}}</div>
+                            <label class="mt-2">Contact Number</label>
+                            <div class="border p-1">{{order.phone}}</div>
+                            <label class="mt-2">Address</label>
+                            <div class="border p-1">
+                                {{order.address}}
+                                ,{{order.city}}
+                                ,{{order.state}}
+                            </div>
+                            <label class="mt-2">Pin Code</label>
+                            <div class="border p-1">{{order.pincode}}</div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <table class="table table-striped table-bordered ">
+                                <thead>
+                                    <h4>Shipping Details</h4>
+                                    <hr>
+                                    <tr>
+                                        <th>Name </th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Image</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {%for item in orderitems%}
+                                        <tr>
+                                            <td>{{item.product.name}}</td>
+                                            <td>{{item.quantity}}</td>
+                                            <td>₹ {{item.price}}</td>
+                                            <td>
+                                                <img src="{{item.product.product_image.url}}" height='50px' weight='50px' alt="Product Image">
+                                            </td>
+                                        </tr>
+
+                                    {%endfor%}
+                                </tbody>
+                            </table>
+
+                            <h4 style="color: red;">Grand Total: ₹ {{ order.total_price }}</h4>
+
+
+                            <h6 class="">Order Status: {{order.status}}</h6>
+                            <h6 class="">Tracking Number: {{order.tracking_no}}</h6>
+                            <h6 class="">Pyment Method: Cash On Delivery</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+{%endblock body%}

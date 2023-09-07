@@ -12,19 +12,28 @@
                       <div class="detail-box">
                          <h1>
                             <span>
-                            Sale 20% Off
+                            Purchase Wth us
                             </span>
                             <br>
-                            On Everything
+                            For amazing Offers
+                           
                          </h1>
-                         <p>
-                            Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
-                         </p>
+                         <p style="color: black; font-size: 16px;">
+                           Explore our cutting-edge electronic gadgets, where technology meets convenience. Discover a curated selection of the latest and most innovative gadgets
+                         {% if user.is_authenticated %}
                          <div class="btn-box">
                             <a href="{%url 'products'%}" class="btn1">
                             Shop Now
                             </a>
                          </div>
+                         
+                         {%else%}
+                         <div class="btn-box">
+                           <a href="{%url 'login'%}" class="btn1">
+                           Shop Now
+                           </a>
+                        </div>
+                        {%endif%}
                       </div>
                    </div>
                 </div>
@@ -37,19 +46,28 @@
                       <div class="detail-box">
                          <h1>
                             <span>
-                            Sale 20% Off
+                            5% Off 
                             </span>
                             <br>
-                            On Everything
+                            Smartphones and
+                            Laptops
                          </h1>
                          <p>
-                            Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
-                         </p>
-                         <div class="btn-box">
-                            <a href="" class="btn1">
-                            Shop Now
-                            </a>
-                         </div>
+                           from smart home devices that enhance your living spaces, to portable gadgets that elevate your on-the-go lifestyle.
+                           {% if user.is_authenticated %}
+                           <div class="btn-box">
+                              <a href="{%url 'products'%}" class="btn1">
+                              Shop Now
+                              </a>
+                           </div>
+                           
+                           {%else%}
+                           <div class="btn-box">
+                             <a href="{%url 'login'%}" class="btn1">
+                             Shop Now
+                             </a>
+                          </div>
+                          {%endif%}
                       </div>
                    </div>
                 </div>
@@ -62,19 +80,28 @@
                       <div class="detail-box">
                          <h1>
                             <span>
-                            Sale 20% Off
+                              We provide Best Quality Products
                             </span>
                             <br>
-                            On Everything
+                            In Amazing Offers 
                          </h1>
                          <p>
-                            Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                           With a seamless shopping experience, expert reviews, and unmatched customer service, we're your go-to destination for staying ahead in the world of electronics. Shop confidently for the future today.
                          </p>
+                         {% if user.is_authenticated %}
                          <div class="btn-box">
-                            <a href="" class="btn1">
+                            <a href="{%url 'products'%}" class="btn1">
                             Shop Now
                             </a>
                          </div>
+                         
+                         {%else%}
+                         <div class="btn-box">
+                           <a href="{%url 'login'%}" class="btn1">
+                           Shop Now
+                           </a>
+                        </div>
+                        {%endif%}
                       </div>
                    </div>
                 </div>

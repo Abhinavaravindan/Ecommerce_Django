@@ -7,6 +7,9 @@ The item add to cart
 {% block content%}
 <div class="container text-center">
     <h1>Added to cart</h1>
+    <form  action="" method="post">
+        {% csrf_token %}
+        {{contactview.as_p}}
 
     <div class="alert alert-info" role="alert">
         

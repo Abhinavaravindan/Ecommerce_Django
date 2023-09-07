@@ -40,6 +40,10 @@
   width:100%;
   height:100%
  }
+.product-title {
+  font-weight: bold;
+  }
+</style>
 
 </style>
 
@@ -53,7 +57,7 @@
    <ol class="breadcrumb">
      <li class="breadcrumb-item"><a href="{% url 'index'%}">Home</a></li>
      <li class="breadcrumb-item">
-       <a href="{% url 'products'%}">collections</a>
+       <a href="{% url 'products'%}">Products</a>
      </li>
    </ol>
  </nav>
@@ -62,7 +66,7 @@
 </div>
 
 {% for item in abhi %}
- <div class="card">
+ <div class="card shadow product_data">
    <div class="container-fliud product_data">
      <div class="wrapper row">
        <div class="preview col-md-6 data">
@@ -77,23 +81,26 @@
           <br/>
           <div class="rating">
             <div class="stars">
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
+              <span class="fa fa-star checked" style="color: orange;"></span>
+              <span class="fa fa-star checked" style="color: orange;"></span>
+              <span class="fa fa-star checked" style="color: orange;"></span>
+              <span class="fa fa-star" style="color: orange;"></span>
+              <span class="fa fa-star" style="color: orange;"></span>
             </div>
-            <span class="review-no">41 reviews</span>
             
+            
+            <span class="review-no">41 reviews</span><p>
+              
           </div>
          <div> 
             <p class="product-description">{{item.description}}</p>
             <br/>
          </div>
          
-         <h4 class="price">
-           Selling price: <span>₹{{item.selling_price}}</span>
+         <h4 class="price" style="color: green;">
+          Selling price: <span>₹{{item.selling_price}}</span>
          </h4>
+        
 
          <div class="container">
            <div class="row">
@@ -142,9 +149,13 @@
              
          
            </button>
-           <button class="like btn btn-default" type="button">
-             <span class="fa fa-heart"></span>
+           <button class="like btn btn-default  addtowishlist" href="{% url 'addtocart'%}" type="button">
+             <span class="fa fa-heart addtowishlist"></span>
+    
            </button>
+           
+
+
          </div>
        </div>
      </div>
@@ -155,6 +166,7 @@
 </div>
 <br />
 <br />
+
 {% endfor %}
 
 
@@ -162,8 +174,14 @@
 
 <script src="{% static '/js/custom2.js' %}"></script>
 <script src="{% static '/js/jquery-3.6.4.min.js' %}"></script>
+<script src="{% static '/js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'js/cart.js' %}"></script>
+<script src="{% static 'path/to/alertify.min.js' %}"></script>
+<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+
 
 {% endblock js %}
+
 
 {% endblock body %} 
 

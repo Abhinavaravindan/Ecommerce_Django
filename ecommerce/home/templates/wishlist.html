@@ -1,0 +1,69 @@
+{% extends 'main2.html'%}
+{% load static%}
+
+{% block css %}
+
+<style>
+    body {
+        display: flex;
+        justify-content: center; /* Horizontally center the content */
+        align-items: center; /* Vertically center the content */
+        min-height: 100vh; /* Ensure the container covers the entire viewport height */
+    }
+
+    .card-container {
+        max-width: 540px;
+    }
+</style>
+
+{% endblock css %}
+
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <div class="container">
+        <br />
+        <nav aria-label="breadcrumb ">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'index'%}">Home</a></li>
+            <li class="breadcrumb-item">
+            <a href="{% url 'wishlist'%}">Wishlist</a>
+            </li>
+        </ol>
+        </nav>
+        <div>
+            
+</div>
+{%if cart%}
+    {%for item in cart%}
+   
+    <div class="card-container cartdata">
+        <div class="card mb-2">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{item.product.product_image.url}}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.product.name}}</h5>
+                        {% csrf_token%}
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <button class="btn btn-danger delete-cart-item"><i class="fa fa-trash"></i> Remove</button>
+
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+  {%else%}
+
+      <h4>Wishlist is Empty<h4>
+
+{%endif%}
+{% endblock body %}

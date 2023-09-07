@@ -1,4 +1,4 @@
-{% extends 'main.html'%}
+{% extends 'main2.html'%}
 {% load static%}
 
 {%block body%}
@@ -12,37 +12,38 @@
          </h2>
       </div>
       <div class="row">
-         {%for item in product%}
+         {% for item in product %}
          <div class="col-sm-6 col-md-4 col-lg-4">
-            <div class="box">
+            <div class="box" style="border: 1px light blue;">
                <div class="option_container">
                   <div class="options">
-                     
-                     <a href="{%url 'collectionview' item.category.slug item.slug%}" class="option2">
+                     <a href="{% url 'collectionview' item.category.slug item.slug %}" class="option2">
                      View
                      </a>
+                     
                   </div>
                </div>
+      
                <div class="img-box">
-                  <img src="{{item.product_image.url}}" alt="">
+                  <img src="{{ item.product_image.url }}" alt="">
                </div>
                <div class="detail-box">
                   <h5>
-                     {{item.name}}
+                     {{ item.name }}
                   </h5>
-                  
                </div>
-               <h6>
-                  ₹{{item.orginal_price}}
+               <h6 style="text-decoration: line-through; color: red;">
+                  ₹{{ item.orginal_price }}
                 </h6>
+                
+      
                <h4>
-                  ₹{{item.selling_price}}
+                  ₹{{ item.selling_price }}
                </h4>
             </div>
          </div>
-         {%endfor%}
+         {% endfor %}
       </div>
-   
-
+      
 
 {%endblock body%}
